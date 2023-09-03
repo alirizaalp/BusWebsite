@@ -5,21 +5,21 @@ import './HomePage.css';
 const HomePage = () => {
   return (
     <div className="home-container">
-      <h2 className="welcome-text">Welcome</h2>
+      <h2 className="welcome-text">OTOBUSTATE</h2>
       <div className="link-container">
-        <Link to="/SignUp" className="link-button">Kaydol</Link>
+        <Link to="/SignUp" className="link-button">Register</Link>
       </div>
 
       <div className="link-container">
-        <Link to="/Hakkında" className="link-button">Hakkında</Link>
+        <Link to="/Hakkında" className="link-button">About</Link>
       </div>
 
       <div className="link-container">
-        <Link to="/Seferler" className="link-button">Sefer Listesi</Link>
+        <Link to="/Seferler" className="link-button">Expedition List</Link>
       </div>
 
       <div className="link-container">
-        <Link to="/YolcumNerede" className="link-button">Yolcum Nerede ?</Link>
+        <Link to="/YolcumNerede" className="link-button">Where İs My Passenger ?</Link>
       </div>
     </div>
   );

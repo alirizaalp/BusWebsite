@@ -11,7 +11,7 @@ function SeferlerListesi({ seferler }) {
     cvc: '',
   });
   const [odemeTamamlandi, setOdemeTamamlandi] = useState(false);
-  const [odemeHatasi, setOdemeHatasi] = useState(false); // Yeni bir state ekleyin
+  const [odemeHatasi, setOdemeHatasi] = useState(false);
 
   const toggleSefer = (seferId) => {
     if (seciliSeferler.includes(seferId)) {
@@ -22,11 +22,10 @@ function SeferlerListesi({ seferler }) {
   };
 
   const handleBiletAl = () => {
-    // Alınan biletlerin yanı sıra seçilen koltukları da ekleyin
     const yeniBiletler = [...alınanBiletler, ...seciliSeferler];
     setAlınanBiletler(yeniBiletler);
     setSeciliSeferler([]);
-    setKoltuklarGoster(true); // Bilet alındığında koltukları göster
+    setKoltuklarGoster(true);
   };
 
   const handleOdemeBilgileriDegisiklik = (e) => {
@@ -38,16 +37,15 @@ function SeferlerListesi({ seferler }) {
   };
 
   const handleOdemeYap = () => {
-    // Kart bilgileri eksikse ödeme hatası göster
     if (!odemeBilgileri.kartNo || !odemeBilgileri.sonKullanimTarihi || !odemeBilgileri.cvc) {
       setOdemeHatasi(true);
       return;
     }
 
-    // Burada ödeme yapılabilir. Örnek olarak, konsola ödeme bilgilerini yazdıralım.
+
     console.log('Ödeme Bilgileri:', odemeBilgileri);
 
-    // Ödeme tamamlandığında "odemeTamamlandi" state'ini güncelleyin
+
     setOdemeTamamlandi(true);
   };
 
@@ -56,13 +54,13 @@ function SeferlerListesi({ seferler }) {
     for (let i = 0; i < biletSayisi; i++) {
       const koltukListesi = [...Array(15)].map((_, index) => (
         <div key={index} className="koltuk">
-          Koltuk {index + 1}
+          Seat {index + 1}
         </div>
       ));
       koltuklar.push(
         <div key={i}>
-          <h2>Koltuk Seçimi - Bilet {i + 1}</h2>
-          <p>Lütfen koltuğunuzu seçin:</p>
+          <h2>Seat Selection - Ticket {i + 1}</h2>
+          <p>Please choose your seat:</p>
           <div className="koltuklar-container">{koltukListesi}</div>
         </div>
       );
@@ -72,10 +70,10 @@ function SeferlerListesi({ seferler }) {
 
   return (
     <div>
-      <h1>Otobüs Sefer Listesi</h1>
+      <h1>List of Bus Services</h1>
       {koltuklarGoster ? (
         <div>
-          <h2>Alınan Biletler</h2>
+          <h2>Tickets Received</h2>
           <ul>
             {alınanBiletler.map((seferId, index) => {
               const seferDetay = seferler.find((sefer) => sefer.id === seferId);
@@ -87,16 +85,16 @@ function SeferlerListesi({ seferler }) {
             })}
           </ul>
           {renderKoltuklar(alınanBiletler.length)}
-          <h2>Ödeme Bilgileri</h2>
+          <h2>Pay Information</h2>
           <form>
-            <label>Kart Numarası:</label>
+            <label>Card Number:</label>
             <input
               type="text"
               name="kartNo"
               value={odemeBilgileri.kartNo}
               onChange={handleOdemeBilgileriDegisiklik}
             />
-            <label>Son Kullanma Tarihi:</label>
+            <label>Expiration Date:</label>
             <input
               type="text"
               name="sonKullanimTarihi"
@@ -111,9 +109,9 @@ function SeferlerListesi({ seferler }) {
               onChange={handleOdemeBilgileriDegisiklik}
             />
           </form>
-          <button onClick={handleOdemeYap}>Ödeme Yap</button>
-          {odemeHatasi && <p>Lütfen gerekli yerleri doldurun.</p>}
-          {odemeTamamlandi && <p>Ödeme Başarıyla Tamamlandı!</p>}
+          <button onClick={handleOdemeYap}>Pay Up</button>
+          {odemeHatasi && <p>Please fill in the required places.</p>}
+          {odemeTamamlandi && <p>The Payoff was Completed Successfully!</p>}
         </div>
       ) : (
         <ul>
@@ -124,20 +122,20 @@ function SeferlerListesi({ seferler }) {
                 checked={seciliSeferler.includes(sefer.id)}
                 onChange={() => toggleSefer(sefer.id)}
               />
-              <strong>Güzergah:</strong> {sefer.guzergah}
+              <strong>The Route:</strong> {sefer.guzergah}
               <br />
-              <strong>Tarih:</strong> {sefer.tarih}
+              <strong>Date:</strong> {sefer.tarih}
               <br />
-              <strong>Gün:</strong> {sefer.gun}
+              <strong>Day:</strong> {sefer.gun}
               <br />
-              <strong>Saat:</strong> {sefer.saat}
+              <strong>Time:</strong> {sefer.saat}
               <br />
-              <strong>Fiyat:</strong> {sefer.fiyat}
+              <strong>Salary:</strong> {sefer.fiyat}
             </li>
           ))}
         </ul>
       )}
-      <button onClick={handleBiletAl}>Bilet Al</button>
+      <button onClick={handleBiletAl}>Buy A Ticket</button>
     </div>
   );
 }

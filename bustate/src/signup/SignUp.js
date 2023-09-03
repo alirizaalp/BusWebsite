@@ -107,10 +107,10 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <h2>Kaydol</h2>
+      <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div className={`form-group ${errors.username ? 'error' : ''}`}>
-          <label htmlFor="username">Kullanıcı Adı</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
@@ -120,7 +120,7 @@ const Signup = () => {
           />
         </div>
         <div className={`form-group ${errors.email ? 'error' : ''}`}>
-          <label htmlFor="email">E-posta</label>
+          <label htmlFor="email">E-mail</label>
           <input
             type="email"
             id="email"
@@ -130,7 +130,7 @@ const Signup = () => {
           />
         </div>
         <div className={`form-group ${errors.password ? 'error' : ''}`}>
-          <label htmlFor="password">Şifre</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -140,7 +140,7 @@ const Signup = () => {
           />
         </div>
         <div className={`form-group ${errors.passwordRepeat ? 'error' : ''}`}>
-          <label htmlFor="passwordRepeat">Şifre Tekrarı</label>
+          <label htmlFor="passwordRepeat">Password Repeat</label>
           <input
             type="password"
             id="passwordRepeat"
@@ -150,7 +150,7 @@ const Signup = () => {
           />
         </div>
         <div className={`form-group ${errors.tc ? 'error' : ''}`}>
-          <label htmlFor="tc">TC Kimlik Numarası</label>
+          <label htmlFor="tc">Turkish Identity Number</label>
           <input
             type="text"
             id="tc"
@@ -160,7 +160,7 @@ const Signup = () => {
           />
         </div>
         <div className={`form-group ${errors.birthDate ? 'error' : ''}`}>
-          <label htmlFor="birthDate">Doğum Tarihi</label>
+          <label htmlFor="birthDate">Birth Date</label>
           <input
             type="date"
             id="birthDate"
@@ -170,7 +170,7 @@ const Signup = () => {
           />
         </div>
         <div className={`form-group ${errors.gender ? 'error' : ''}`}>
-          <label htmlFor="gender">Cinsiyet</label>
+          <label htmlFor="gender">Gender</label>
           <select
             id="gender"
             name="gender"
@@ -178,21 +178,21 @@ const Signup = () => {
             onChange={handleChange}
           >
             <option value="">Seçiniz</option>
-            <option value="Erkek">Erkek</option>
-            <option value="Kadın">Kadın</option>
+            <option value="Erkek">Male</option>
+            <option value="Kadın">Female</option>
           </select>
         </div>
-        <button type="submit">Kaydol</button>
+        <button type="submit">Register</button>
       </form>
 
       {/* Kullanıcının verilerini göstermek için bölüm */}
       {userInformation && (
         <div className="user-information">
-          <h2>Kayıt Başarıyla Tamamlandı</h2>
-          <p>Kullanıcı Adı: {userInformation.username}</p>
-          <p>E-posta: {userInformation.email}</p>
-          <p>Doğum Tarihi: {userInformation.birthDate}</p>
-          <p>Cinsiyet: {userInformation.gender}</p>
+          <h2>Registration Successfully Completed</h2>
+          <p>User name: {userInformation.username}</p>
+          <p>E-mail: {userInformation.email}</p>
+          <p>Date Of Date: {userInformation.birthDate}</p>
+          <p>Gender: {userInformation.gender}</p>
         </div>
       )}
     </div>
