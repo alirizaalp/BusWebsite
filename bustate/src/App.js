@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './homepage/HomePage';
 import SignUp from './signup/SignUp';
+import Login from './signup/Login';
 import Hakkında from './homepage/Hakkında';
 import SeferlerListesi from './seferler/SeferlerListesi';
 import Seferler from './seferler/Seferler';
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signUp" element={<SignUp />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/hakkında" element={<Hakkında />} />
         <Route path="/seferler" element={<SeferlerListesi seferler={Seferler} />} />
         <Route path="/YolcumNerede" element={<YolcumNerede />} />

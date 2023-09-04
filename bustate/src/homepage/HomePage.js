@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './HomePage.css'; 
+import './HomePage.css';
 
 const HomePage = () => {
   return (
@@ -8,6 +8,10 @@ const HomePage = () => {
       <h2 className="welcome-text">OTOBUSTATE</h2>
       <div className="link-container">
         <Link to="/SignUp" className="link-button">Register</Link>
+      </div>
+
+      <div className="link-container">
+        <Link to="/Login" className="link-button">Login</Link>
       </div>
 
       <div className="link-container">
