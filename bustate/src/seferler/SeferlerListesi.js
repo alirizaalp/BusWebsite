@@ -37,10 +37,27 @@ function SeferlerListesi({ seferler }) {
 
   const handleOdemeBilgileriDegisiklik = (e) => {
     const { name, value } = e.target;
-    setOdemeBilgileri({
-      ...odemeBilgileri,
-      [name]: value,
-    });
+
+
+    if (name === 'kartNo') {
+
+      const numericValue = value.replace(/\D/g, '');
+
+      const formattedCardNumber = numericValue
+        .replace(/\s/g, '')
+        .match(/.{1,4}/g)
+        ?.join(' ');
+
+      setOdemeBilgileri({
+        ...odemeBilgileri,
+        kartNo: formattedCardNumber || '',
+      });
+    } else {
+      setOdemeBilgileri({
+        ...odemeBilgileri,
+        [name]: value,
+      });
+    }
   };
 
   const handleOdemeYap = () => {
@@ -90,7 +107,7 @@ function SeferlerListesi({ seferler }) {
             })}
           </ul>
           {renderKoltuklar(alınanBiletler.length)}
-          <h2>Pay Information</h2>
+          <h2>Payment Information</h2>
           <form>
             <label>Card Number:</label>
             <input
@@ -147,4 +164,5 @@ function SeferlerListesi({ seferler }) {
 }
 
 export default SeferlerListesi;
+
 
