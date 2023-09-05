@@ -30,6 +30,11 @@ function SeferlerListesi({ seferler }) {
     setKoltuklarGoster(true);
   };
 
+  const handleBiletIptal = (biletId) => {
+    const yeniBiletler = alınanBiletler.filter((id) => id !== biletId);
+    setAlınanBiletler(yeniBiletler);
+  };
+
   const handleOdemeBilgileriDegisiklik = (e) => {
     const { name, value } = e.target;
     setOdemeBilgileri({
@@ -44,10 +49,7 @@ function SeferlerListesi({ seferler }) {
       return;
     }
 
-
     console.log('Ödeme Bilgileri:', odemeBilgileri);
-
-
     setOdemeTamamlandi(true);
   };
 
@@ -82,6 +84,7 @@ function SeferlerListesi({ seferler }) {
               return (
                 <li key={index}>
                   {seferDetay.guzergah} - {seferDetay.tarih} - {seferDetay.gun} - {seferDetay.saat} - {seferDetay.fiyat}
+                  <button type='button' onClick={() => handleBiletIptal(seferId)}>Cancel</button>
                 </li>
               );
             })}
@@ -113,7 +116,7 @@ function SeferlerListesi({ seferler }) {
           </form>
           <button onClick={handleOdemeYap}>Pay Up</button>
           {odemeHatasi && <p>Please fill in the required places.</p>}
-          {odemeTamamlandi && <p>The Payoff was Completed Successfully!</p>}
+          {odemeTamamlandi && <p>The Payment was Completed Successfully!</p>}
         </div>
       ) : (
         <ul>
@@ -137,10 +140,11 @@ function SeferlerListesi({ seferler }) {
           ))}
         </ul>
       )}
-      <button type='button' onClick={handleBiletAl}>Buy A Ticket</button>
+      <button type="button" onClick={handleBiletAl}>Buy A Ticket</button>
       <button type="button" onClick={() => navigate(-1)}>Go back to the homepage.</button>
     </div>
   );
 }
 
 export default SeferlerListesi;
+

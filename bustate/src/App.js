@@ -7,7 +7,7 @@ import Hakkında from './homepage/Hakkında';
 import SeferlerListesi from './seferler/SeferlerListesi';
 import Seferler from './seferler/Seferler';
 import YolcumNerede from "./homepage/YolcumNerede";
-import "./App.css"
+import "./App.css";
 
 
 function App() {
