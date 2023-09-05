@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './SeferlerListesi.css';
+import { useNavigate } from 'react-router-dom';
 
 function SeferlerListesi({ seferler }) {
   const [seciliSeferler, setSeciliSeferler] = useState([]);
   const [alınanBiletler, setAlınanBiletler] = useState([]);
   const [koltuklarGoster, setKoltuklarGoster] = useState(false);
+  const navigate = useNavigate();
   const [odemeBilgileri, setOdemeBilgileri] = useState({
     kartNo: '',
     sonKullanimTarihi: '',
@@ -135,7 +137,8 @@ function SeferlerListesi({ seferler }) {
           ))}
         </ul>
       )}
-      <button onClick={handleBiletAl}>Buy A Ticket</button>
+      <button type='button' onClick={handleBiletAl}>Buy A Ticket</button>
+      <button type="button" onClick={() => navigate(-1)}>Go back to the homepage.</button>
     </div>
   );
 }

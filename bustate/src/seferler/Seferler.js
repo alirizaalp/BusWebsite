@@ -4,7 +4,9 @@ const Seferler = [
     { id: 3, guzergah: 'Ankara - İzmir', tarih: '2023-09-05', saat: '07:45', gun: 'Çarşamba', fiyat : "300 TL"  },
     { id: 4, guzergah: 'Antalya - İstanbul', tarih: '2023-09-06', saat: '10:15', gun: 'Perşembe', fiyat: "700 TL"    },
     { id: 5, guzergah: 'İzmir - İstanbul', tarih: '2023-09-06', saat: '10:15', gun: 'Perşembe', fiyat: "605 TL"    }, 
-];
+    { id: 6, guzergah: 'Malatya - Sivas', tarih: '2023-09-08', saat: '10:15', gun: 'Cuma', fiyat: "215 TL"    }, 
+  ];
+
   
   export default Seferler;
   

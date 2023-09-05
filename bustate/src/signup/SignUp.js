@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
-import "./SignUp.css"
+import { useNavigate } from 'react-router-dom';
+import './SignUp.css';
 import userData from './usersData';
 
+
 const Signup = () => {
+  const navigate = useNavigate();
+  
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -24,6 +29,7 @@ const Signup = () => {
   });
 
   const [userInformation, setUserInformation] = useState(null);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -64,22 +70,19 @@ const Signup = () => {
       return;
     }
 
-   
     if (formData.tc.length !== 11) {
-      setErrors({ ...errors, tc: true }); 
+      setErrors({ ...errors, tc: true });
       return;
     }
 
     // Şifrelerin eşleştiğini doğrula
     if (formData.password !== formData.passwordRepeat) {
-      setErrors({ ...errors, passwordRepeat: true }); 
+      setErrors({ ...errors, passwordRepeat: true });
       return;
     }
 
-   
     console.log('Gönderilen veriler:', formData);
 
-    
     const newUserData = {
       username: formData.username,
       email: formData.email,
@@ -87,13 +90,10 @@ const Signup = () => {
       gender: formData.gender
     };
 
-    
     userData.push(newUserData);
 
-    
     setUserInformation(newUserData);
 
-   
     setFormData({
       username: '',
       email: '',
@@ -177,7 +177,7 @@ const Signup = () => {
             value={formData.gender}
             onChange={handleChange}
           >
-            <option value="">Seçiniz</option>
+            <option value="">Please Select</option>
             <option value="Erkek">Male</option>
             <option value="Kadın">Female</option>
           </select>
@@ -185,13 +185,15 @@ const Signup = () => {
         <button type="submit">Register</button>
       </form>
 
+      <button type="button" onClick={() => navigate(-1)}>Go back to the homepage.</button>
+
       {/* Kullanıcının verilerini göstermek için bölüm */}
       {userInformation && (
         <div className="user-information">
           <h2>Registration Successfully Completed</h2>
           <p>User name: {userInformation.username}</p>
           <p>E-mail: {userInformation.email}</p>
-          <p>Date Of Date: {userInformation.birthDate}</p>
+          <p>Date Of Birth: {userInformation.birthDate}</p>
           <p>Gender: {userInformation.gender}</p>
         </div>
       )}
@@ -200,8 +202,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-
-
-
-
