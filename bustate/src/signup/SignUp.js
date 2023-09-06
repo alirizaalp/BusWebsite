@@ -112,6 +112,7 @@ const Signup = () => {
         <div className={`form-group ${errors.username ? 'error' : ''}`}>
           <label htmlFor="username">Username</label>
           <input
+            placeholder="username"
             type="text"
             id="username"
             name="username"
@@ -122,6 +123,7 @@ const Signup = () => {
         <div className={`form-group ${errors.email ? 'error' : ''}`}>
           <label htmlFor="email">E-mail</label>
           <input
+            placeholder="email"
             type="email"
             id="email"
             name="email"
@@ -132,6 +134,7 @@ const Signup = () => {
         <div className={`form-group ${errors.password ? 'error' : ''}`}>
           <label htmlFor="password">Password</label>
           <input
+            placeholder="password"
             type="password"
             id="password"
             name="password"
@@ -142,6 +145,7 @@ const Signup = () => {
         <div className={`form-group ${errors.passwordRepeat ? 'error' : ''}`}>
           <label htmlFor="passwordRepeat">Password Repeat</label>
           <input
+            placeholder="Password Repeat"
             type="password"
             id="passwordRepeat"
             name="passwordRepeat"
@@ -152,6 +156,7 @@ const Signup = () => {
         <div className={`form-group ${errors.tc ? 'error' : ''}`}>
           <label htmlFor="tc">Turkish Identity Number</label>
           <input
+            placeholder="Turkish Identity Number"
             type="text"
             id="tc"
             name="tc"
@@ -162,6 +167,7 @@ const Signup = () => {
         <div className={`form-group ${errors.birthDate ? 'error' : ''}`}>
           <label htmlFor="birthDate">Birth Date</label>
           <input
+            placeholder="Birt Date"
             type="date"
             id="birthDate"
             name="birthDate"
@@ -172,6 +178,7 @@ const Signup = () => {
         <div className={`form-group ${errors.gender ? 'error' : ''}`}>
           <label htmlFor="gender">Gender</label>
           <select
+            placeholder="Gender"
             id="gender"
             name="gender"
             value={formData.gender}

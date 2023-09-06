@@ -27,7 +27,7 @@
 .welcome-text {
   font-size: 36px;
   margin-bottom: 20px;
-  color: #cd84f1; 
+  color: #0984e3; 
   text-transform: uppercase; 
   font-family: 'Arial', sans-serif; 
   letter-spacing: 2px; 
@@ -50,5 +50,5 @@
 }
 
 .link-button:hover {
-  background-color: #cd84f1;; 
+  background-color: #0984e3; 
 }

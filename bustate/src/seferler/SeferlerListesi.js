@@ -111,6 +111,7 @@ function SeferlerListesi({ seferler }) {
           <form>
             <label>Card Number:</label>
             <input
+             placeholder="Card Number"
               type="text"
               name="kartNo"
               value={odemeBilgileri.kartNo}
@@ -118,6 +119,7 @@ function SeferlerListesi({ seferler }) {
             />
             <label>Expiration Date:</label>
             <input
+              placeholder="Expiration Date"
               type="text"
               name="sonKullanimTarihi"
               value={odemeBilgileri.sonKullanimTarihi}
@@ -125,6 +127,7 @@ function SeferlerListesi({ seferler }) {
             />
             <label>CVC:</label>
             <input
+              placeholder="CVC"
               type="text"
               name="cvc"
               value={odemeBilgileri.cvc}
